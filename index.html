@@ -3,9 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chaka Town - Find Your Perfect Stay</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo">Chaka Stays</div>
+            
+            <!-- Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <!-- User Actions -->
+            <div class="user-actions">
+                <a href="#signin" class="sign-in">Sign In</a>
+                <a href="#list-property" class="list-property">List Your Property</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background-image: url('images/hero-bg.jpg');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Discover Luxury in Chaka Town</h1>
+            <p>Escape to nature with premium stays.</p>
+            <div class="search-bar-container">
+                <form class="search-bar">
+                    <!-- Location Search -->
+                    <div class="form-group">
+                        <label for="location" class="visually-hidden">Location</label>
+                        <select id="location" class="location-dropdown" required>
+                            <option value="" disabled selected>Where are you going?</option>
+                            <option value="chaka-town">Chaka Town</option>
+                            <option value="nearby-areas">Nearby Areas</option>
+                        </select>
+                    </div>
+
+                    <!-- Check-In/Out Calendar -->
+                    <div class="form-group">
+                        <label for="check-in" class="visually-hidden">Check-in</label>
+                        <input type="date" id="check-in" placeholder="Check-in" class="date-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="check-out" class="visually-hidden">Check-out</label>
+                        <input type="date" id="check-out" placeholder="Check-out" class="date-input" required>
+                    </div>
+
+                    <!-- Guests Dropdown -->
+                    <div class="form-group">
+                        <label for="guests" class="visually-hidden">Guests</label>
+                        <input type="text" id="guests" placeholder="2 adults · 0 children · 1 room" class="guest-input" readonly>
+                        <div class="guest-dropdown">
+                            <div class="counter">
+                                <label>Adults</label>
+                                <div>
+                                    <button type="button" class="guest-btn minus" data-type="adults">-</button>
+                                    <span class="guest-count" data-type="adults">2</span>
+                                    <button type="button" class="guest-btn plus" data-type="adults">+</button>
+                                </div>
+                            </div>
+                            <div class="counter">
+                                <label>Children</label>
+                                <div>
+                                    <button type="button" class="guest-btn minus" data-type="children">-</button>
+                                    <span class="guest-count" data-type="children">0</span>
+                                    <button type="button" class="guest-btn plus" data-type="children">+</button>
+                                </div>
+                            </div>
+                            <div class="counter">
+                                <label>Rooms</label>
+                                <div>
+                                    <button type="button" class="guest-btn minus" data-type="rooms">-</button>
+                                    <span class="guest-count" data-type="rooms">1</span>
+                                    <button type="button" class="guest-btn plus" data-type="rooms">+</button>
+                                </div>
+                            </div>
+                            <button type="button" class="apply-btn">Apply</button>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="form-button">
+                        <button type="submit" class="search-button">Find Stays</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Properties -->
+    <section id="featured" class="featured-properties">
+        <h2>Curated Stays in Chaka Town</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="images/property1.jpg" alt="Luxury Villa">
+                <div class="property-details">
+                    <span class="badge eco-friendly">Eco-Friendly</span>
+                    <h3>Luxury Villa</h3>
+                    <p>Private villa with mountain views</p>
+                    <p class="price">$300/night</p>
+                    <button class="book-now">Book Now</button>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="images/property2.jpg" alt="Cozy Cottage">
+                <div class="property-details">
+                    <h3>Cozy Cottage</h3>
+                    <p>Charming cottage near the lake</p>
+                    <p class="price">$180/night</p>
+                    <button class="book-now">Book Now</button>
+                </div>
+            </div>
+            <div class="property-card">
+                <img src="images/property3.jpg" alt="Modern Apartment">
+                <div class="property-details">
+                    <h3>Modern Apartment</h3>
+                    <p>Stylish apartment in the city center</p>
+                    <p class="price">$250/night</p>
+                    <button class="book-now">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map -->
+    <section id="interactive-map" class="interactive-map">
+        <h2>Explore Chaka Town</h2>
+        <p class="subtitle">Find your perfect stay in the heart of nature.</p>
+        <div class="map-layout">
+            <!-- Map Container -->
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15955.123456789!2d36.951234!3d-0.412345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f123456789abc%3A0x123456789abcdef!2sChaka%20Town%2C%20Nyeri%20County%2C%20Kenya!5e0!3m2!1sen!2sus!4v1610000000000!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="400" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                <div class="map-filters">
+                    <button class="filter-button">Villas</button>
+                    <button class="filter-button">Cabins</button>
+                    <button class="filter-button">Near Hiking Trails</button>
+                </div>
+            </div>
+
+            <!-- Location Highlights -->
+            <div class="location-highlights">
+                <div class="highlight">
+                    <h3>Lakeside District</h3>
+                    <p>Secluded homes with private docks.</p>
+                    <button class="view-stays">View Stays <i class="fas fa-arrow-right"></i></button>
+                </div>
+                <div class="highlight">
+                    <h3>Mountain Ridge</h3>
+                    <p>Perfect for sunset views and hiking trails.</p>
+                    <button class="view-stays">View Stays <i class="fas fa-arrow-right"></i></button>
+                    <p class="local-tip"><em>Pro tip: Mountain Ridge offers breathtaking sunset views!</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <section id="trust-indicators" class="trust-indicators">
+        <div class="trust-item">
+            <i class="fas fa-phone-alt"></i>
+            <h3>24/7 Support</h3>
+            <p>We're here to help anytime, anywhere.</p>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Verified Hosts</h3>
+            <p>All our hosts are verified for your safety.</p>
+        </div>
+        <div class="trust-item">
+            <i class="fas fa-calendar-check"></i>
+            <h3>Flexible Cancellation</h3>
+            <p>Plans changed? No worries, we've got you covered.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#faqs">FAQs</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>Email: <a href="mailto:support@chakastays.com">support@chakastays.com</a></p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get the latest updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Chaka Stays. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+
 </body>
 </html>
