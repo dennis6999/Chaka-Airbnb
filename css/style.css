@@ -35,17 +35,17 @@ header {
     z-index: 1000;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #2C3E50; /* Primary: Dark Slate Blue */
-    font-family: 'Poppins', sans-serif;
+    padding: 1rem 2rem;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-links {
@@ -65,6 +65,79 @@ header {
 
 .nav-links a:hover {
     color: #D4AF37; /* Accent: Elegant Gold */
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.sign-in {
+    text-decoration: none;
+    color: #2C3E50; /* Primary: Dark Slate Blue */
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.sign-in:hover {
+    color: #D4AF37; /* Accent: Elegant Gold */
+}
+
+.list-property {
+    text-decoration: none;
+    background: #E67E22; /* CTA: Inviting Orange */
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.list-property:hover {
+    background: #D35400; /* Darker Orange */
+    transform: scale(1.05); /* Subtle hover effect */
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #2C3E50;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 1rem;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: block;
+    }
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2C3E50; /* Primary: Dark Slate Blue */
+    font-family: 'Poppins', sans-serif;
 }
 
 .user-actions {

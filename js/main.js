@@ -1,21 +1,18 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // Guest Dropdown Logic
     const guestInput = document.getElementById("guests");
     const guestDropdown = document.querySelector(".guest-dropdown");
-    const guestCounts = {
-        adults: 2,
-        children: 0,
-        rooms: 1,
-    };
+    const guestCounts = { adults: 2, children: 0, rooms: 1 };
 
     // Toggle dropdown visibility
     guestInput.addEventListener("click", () => {
         guestDropdown.classList.toggle("active");
     });
 
-    // Update counts
+    // Update guest counts
     document.querySelectorAll(".guest-btn").forEach((button) => {
         button.addEventListener("click", (e) => {
-            const type = e.target.getAttribute("data-type");
+            const type = e.target.dataset.type;
             if (button.classList.contains("plus")) {
                 guestCounts[type]++;
             } else if (button.classList.contains("minus") && guestCounts[type] > 0) {
@@ -26,9 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Apply button
+    // Apply guest selection
     document.querySelector(".apply-btn").addEventListener("click", () => {
         guestInput.value = `${guestCounts.adults} adults · ${guestCounts.children} children · ${guestCounts.rooms} room${guestCounts.rooms > 1 ? "s" : ""}`;
         guestDropdown.classList.remove("active");
+    });
+
+    // Navbar Toggle Logic
+    const hamburger = document.querySelector(".hamburger");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
     });
 });
