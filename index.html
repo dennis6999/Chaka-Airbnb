@@ -389,6 +389,27 @@
             object-fit: cover;
         }
 
+        /* Google Maps Section */
+        .location {
+            padding: 80px 0;
+            background: var(--background);
+        }
+
+        .map-container {
+            height: 500px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
         /* Newsletter */
         .newsletter {
             padding: 80px 0;
@@ -583,6 +604,12 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .map-container {
+                height: 350px;
+            }
+        }
+
         @media (max-width: 576px) {
             .hero h1 {
                 font-size: 2rem;
@@ -604,6 +631,10 @@
             .newsletter-btn {
                 border-radius: 6px;
                 padding: 15px;
+            }
+
+            .map-container {
+                height: 300px;
             }
         }
     </style>
@@ -865,6 +896,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Map Section -->
+    <section class="location">
+        <div class="container">
+            <h2 class="section-title">Find Us in Chaka Ranch</h2>
+            <p class="section-subtitle">Discover our luxury properties in this beautiful location</p>
+            
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d950.6802123776167!2d36.999095023081466!3d-0.3592153402489241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMMKwMjEnMzMuMyJTIDM2wrA1OSc1OC4wIkU!5e1!3m2!1sen!2ske!4v1743767739295!5m2!1sen!2ske" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
