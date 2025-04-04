@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Luxury Villa | Chaka Stays</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2C3E50;
             --accent: #D4AF37;
-            --background: #F7F5EB;
+            --background: #F9F9F7;
             --dark: #222222;
             --light-gray: #F7F7F7;
-            --medium-gray: #DDDDDD;
+            --medium-gray: #E0E0E0;
             --dark-gray: #717171;
             --white: #FFFFFF;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         * {
@@ -30,21 +31,23 @@
             color: var(--dark);
             line-height: 1.6;
             background-color: var(--background);
+            font-weight: 400;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         header {
-            padding: 20px 0;
+            padding: 18px 0;
             border-bottom: 1px solid var(--medium-gray);
             background-color: var(--white);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .header-content {
@@ -59,11 +62,12 @@
             color: var(--primary);
             text-decoration: none;
             font-family: 'Playfair Display', serif;
+            letter-spacing: -0.5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 28px;
         }
 
         .nav-links a {
@@ -71,6 +75,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
+            font-size: 15px;
         }
 
         .nav-links a:hover {
@@ -80,104 +85,122 @@
         .property-section {
             display: grid;
             grid-template-columns: 2fr 1fr;
-            gap: 40px;
-            margin: 40px 0;
+            gap: 48px;
+            margin: 48px 0;
         }
 
         @media (max-width: 768px) {
             .property-section {
                 grid-template-columns: 1fr;
+                gap: 32px;
             }
         }
 
         .property-gallery {
             position: relative;
+            border-radius: 16px;
+            overflow: hidden;
         }
 
         .main-image {
             width: 100%;
-            height: 400px;
+            height: 480px;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            display: block;
+            transition: var(--transition);
+        }
+
+        .main-image:hover {
+            transform: scale(1.02);
         }
 
         .property-title {
-            margin: 20px 0 10px;
-            font-size: 2rem;
+            margin: 28px 0 12px;
+            font-size: 2.2rem;
             font-family: 'Playfair Display', serif;
             color: var(--primary);
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
 
         .property-location {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             color: var(--dark-gray);
+            font-size: 15px;
         }
 
         .property-location i {
             margin-right: 8px;
             color: var(--accent);
+            font-size: 14px;
         }
 
         .property-price {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--primary);
+            font-family: 'Playfair Display', serif;
         }
 
         .property-price span {
             font-size: 1rem;
             color: var(--dark-gray);
             font-weight: normal;
+            font-family: 'Inter', sans-serif;
         }
 
         .booking-form {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 12px;
+            padding: 32px;
+            border-radius: 16px;
             box-shadow: var(--shadow);
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+            border: 1px solid var(--medium-gray);
         }
 
         .form-title {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: 500;
+            font-size: 15px;
+            color: var(--dark);
         }
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 16px;
             border: 1px solid var(--medium-gray);
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 15px;
             transition: var(--transition);
+            background-color: var(--white);
         }
 
         .form-control:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.15);
         }
 
         .date-fields {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 16px;
         }
 
         .guest-selector {
@@ -186,7 +209,8 @@
             justify-content: space-between;
             border: 1px solid var(--medium-gray);
             border-radius: 8px;
-            padding: 10px 15px;
+            padding: 12px 16px;
+            background-color: var(--white);
         }
 
         .guest-control {
@@ -196,163 +220,221 @@
             cursor: pointer;
             color: var(--dark-gray);
             transition: var(--transition);
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
         }
 
         .guest-control:hover {
             color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
         }
 
         .guest-count {
             font-weight: 500;
+            font-size: 15px;
         }
 
         .payment-options {
             display: flex;
-            gap: 15px;
-            margin-top: 10px;
+            gap: 12px;
+            margin-top: 12px;
         }
 
         .payment-option {
             flex: 1;
             text-align: center;
-            padding: 10px;
+            padding: 14px 10px;
             border: 1px solid var(--medium-gray);
             border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
+            background-color: var(--white);
         }
 
         .payment-option:hover {
             border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.05);
+        }
+
+        .payment-option.active {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
         }
 
         .payment-option i {
             font-size: 1.5rem;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             color: var(--accent);
+        }
+
+        .payment-option div {
+            font-size: 13px;
+            font-weight: 500;
         }
 
         .booking-summary {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 12px;
+            padding: 32px;
+            border-radius: 16px;
             box-shadow: var(--shadow);
             position: sticky;
             top: 100px;
+            border: 1px solid var(--medium-gray);
+            height: auto; /* Ensure the height adjusts to the content */
+            display: inline-block; /* Shrink to fit content */
         }
 
         .summary-title {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
 
         .price-breakdown {
-            margin-bottom: 25px;
+            margin-bottom: 28px;
         }
 
         .price-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            padding-bottom: 10px;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
             border-bottom: 1px solid var(--medium-gray);
+            font-size: 15px;
+        }
+
+        .price-row span:last-child {
+            font-weight: 500;
         }
 
         .price-total {
             font-weight: 600;
             font-size: 1.2rem;
-            margin-top: 15px;
+            margin-top: 20px;
             color: var(--primary);
+            padding-top: 12px;
+            border-top: 1px solid var(--medium-gray);
         }
 
         .btn {
             display: block;
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             background-color: var(--accent);
             color: var(--primary);
             border: none;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
+            margin-top: 24px;
+            letter-spacing: 0.5px;
         }
 
         .btn:hover {
             background-color: #c9a227;
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25);
         }
 
         .reviews-section {
-            margin: 50px 0;
+            margin: 56px 0;
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 12px;
+            padding: 32px;
+            border-radius: 16px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--medium-gray);
         }
 
         .reviews-title {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--primary);
             font-family: 'Playfair Display', serif;
+            font-weight: 600;
         }
 
         .review-card {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
             border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .review-card:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
         }
 
         .review-header {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .review-avatar {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             object-fit: cover;
-            margin-right: 15px;
+            margin-right: 16px;
         }
 
         .review-name {
             font-weight: 600;
+            font-size: 15px;
         }
 
         .review-date {
             color: var(--dark-gray);
-            font-size: 0.9rem;
+            font-size: 13px;
+            margin-top: 2px;
         }
 
         .review-stars {
             color: var(--accent);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .review-stars i {
+            margin-right: 2px;
+        }
+
+        .review-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--dark);
         }
 
         footer {
             background-color: var(--primary);
             color: var(--white);
-            padding: 40px 0;
-            margin-top: 50px;
+            padding: 48px 0 32px;
+            margin-top: 64px;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .footer-column h3 {
             margin-bottom: 20px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
         .footer-column ul {
@@ -360,17 +442,20 @@
         }
 
         .footer-column li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-column a {
             color: var(--white);
             text-decoration: none;
             transition: var(--transition);
+            font-size: 14px;
+            opacity: 0.9;
         }
 
         .footer-column a:hover {
             color: var(--accent);
+            opacity: 1;
         }
 
         /* Animations */
@@ -380,11 +465,11 @@
         }
 
         .fade-in {
-            animation: fadeIn 0.5s ease forwards;
+            animation: fadeIn 0.6s ease forwards;
         }
 
         /* Responsive adjustments */
-        @media (max-width: 576px) {
+        @media (max-width: 768px) {
             .date-fields {
                 grid-template-columns: 1fr;
             }
@@ -395,11 +480,35 @@
             
             .header-content {
                 flex-direction: column;
-                gap: 15px;
+                gap: 16px;
             }
             
             .nav-links {
                 justify-content: center;
+            }
+            
+            .main-image {
+                height: 360px;
+            }
+            
+            .property-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .booking-form,
+            .booking-summary,
+            .reviews-section {
+                padding: 24px;
+            }
+            
+            .property-title {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -570,13 +679,13 @@
                 
                 <button type="submit" form="bookingForm" class="btn">Confirm Booking</button>
                 
-                <p style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: var(--dark-gray);">
+                <p style="text-align: center; margin-top: 16px; font-size: 14px; color: var(--dark-gray);">
                     You won't be charged yet
                 </p>
                 
-                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--medium-gray);">
-                    <h3 style="font-size: 1rem; margin-bottom: 10px; color: var(--primary);">Cancellation Policy</h3>
-                    <p style="font-size: 0.9rem; color: var(--dark-gray);">
+                <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--medium-gray);">
+                    <h3 style="font-size: 15px; margin-bottom: 12px; color: var(--primary); font-weight: 600;">Cancellation Policy</h3>
+                    <p style="font-size: 14px; color: var(--dark-gray); line-height: 1.6;">
                         Free cancellation up to 14 days before check-in. After that, cancel up to 24 hours before check-in and get a 50% refund.
                     </p>
                 </div>
@@ -623,8 +732,8 @@
                 </div>
             </div>
             
-            <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: var(--accent);">
-                <p>&copy; 2023 Chaka Stays. All rights reserved.</p>
+            <div style="margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; color: var(--accent);">
+                <p style="font-size: 14px;">&copy; 2023 Chaka Stays. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -668,6 +777,15 @@
             checkoutInput.min = checkinInput.value;
         });
         
+        // Payment option selection
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+        
         // Calculate booking total based on dates
         function calculateTotal() {
             const checkin = new Date(checkinInput.value);
@@ -690,6 +808,11 @@
         
         checkinInput.addEventListener('change', calculateTotal);
         checkoutInput.addEventListener('change', calculateTotal);
+        
+        // Initialize with first payment option selected
+        if (paymentOptions.length > 0) {
+            paymentOptions[0].classList.add('active');
+        }
     </script>
 </body>
 </html>

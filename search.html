@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Luxury Villas | Chaka Stays</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2C3E50;
+            --accent: #D4AF37;
+            --background: #F9F9F7;
+            --dark: #222222;
+            --light-gray: #F7F7F7;
+            --medium-gray: #E0E0E0;
+            --dark-gray: #717171;
+            --white: #FFFFFF;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--background);
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .search-hero {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .search-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        .search-hero p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 120px; /* Adjusted to fit all elements */
+            gap: 15px;
+            align-items: center; /* Ensures vertical alignment */
+        }
+
+        @media (max-width: 768px) {
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 0;
+            display: flex;
+            flex-direction: column; /* Ensures label and input are stacked */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 15px;
+            transition: var(--transition);
+            box-sizing: border-box; /* Ensures consistent sizing */
+        }
+
+        .search-btn {
+            background-color: var(--accent);
+            color: var(--white); /* Ensure text is visible */
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            align-self: flex-end;
+            padding: 12px 16px; /* Add padding for better clickability */
+            font-size: 16px; /* Adjust font size for readability */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Add spacing between icon and text */
+        }
+
+        .search-btn:hover {
+            background-color: #c9a227;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.25); /* Add hover effect */
+        }
+
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .filter-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background-color: var(--white);
+            border: 1px solid var(--medium-gray);
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .property-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+        }
+
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+
+        .property-info {
+            padding: 20px;
+        }
+
+        .property-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .property-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .property-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .property-price span {
+            font-weight: normal;
+            font-size: 14px;
+            color: var(--dark-gray);
+        }
+
+        .property-location {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+
+        .property-location i {
+            margin-right: 8px;
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+
+        .property-feature {
+            display: flex;
+            align-items: center;
+        }
+
+        .property-feature i {
+            margin-right: 5px;
+            color: var(--accent);
+        }
+
+        .property-rating {
+            display: flex;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .property-rating i {
+            margin-right: 5px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 60px;
+        }
+
+        .page-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid var(--medium-gray);
+            background-color: var(--white);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .page-btn:hover, .page-btn.active {
+            border-color: var(--accent);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 48px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: var(--accent);
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .search-hero {
+                padding: 40px 0;
+            }
+            
+            .search-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .filter-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .search-box {
+                padding: 16px;
+            }
+            
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Chaka Stays</a>
+                <div class="nav-links">
+                    <a href="properties.html" class="active">Browse Stays</a>
+                    <a href="#">Help</a>
+                    <a href="#">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="search-hero">
+        <div class="container">
+            <h1>Find Your Perfect Luxury Stay</h1>
+            <p>Discover exclusive villas and private retreats in Chaka Town's most desirable locations</p>
+            
+            <div class="search-box">
+                <form class="search-form">
+                    <div class="form-group">
+                        <label for="destination">Destination</label>
+                        <select id="destination" class="form-control">
+                            <option value="" disabled selected>Select a destination</option>
+                            <option value="chaka-town">Chaka Town</option>
+                            <option value="nearby-places">Nearby Places</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkin">Check-in</label>
+                        <input type="date" id="checkin" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkout">Check-out</label>
+                        <input type="date" id="checkout" class="form-control" required>
+                    </div>
+
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                        <span>Search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <div class="filter-bar">
+            <h2 class="filter-title">24 luxury villas in Chaka Town</h2>
+            <div class="filter-options">
+                <button class="filter-btn active">All</button>
+                <button class="filter-btn">Beachfront</button>
+                <button class="filter-btn">Mountain View</button>
+                <button class="filter-btn">Private Pool</button>
+                <button class="filter-btn">Luxury</button>
+            </div>
+        </div>
+        
+        <div class="property-grid">
+            <!-- Property 1 -->
+            <a href="property.html" class="property-card">
+                <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Mountain View Villa" class="property-image">
+                <div class="property-info">
+                    <div class="property-header">
+                        <h3 class="property-title">Mountain Ridge Villa</h3>
+                        <div class="property-price">$300 <span>/ night</span></div>
+                    </div>
+                    <div class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Mountain Ridge, Chaka Town</span>
+                    </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <i class="fas fa-bed"></i> 4 beds
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-bath"></i> 3 baths
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-ruler-combined"></i> 2,800 sqft
+                        </div>
+                    </div>
+                    <div class="property-rating">
+                        <i class="fas fa-star"></i> 4.9 (24 reviews)
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Property 2 -->
+            <a href="property.html" class="property-card">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Oceanfront Villa" class="property-image">
+                <div class="property-info">
+                    <div class="property-header">
+                        <h3 class="property-title">Oceanfront Paradise</h3>
+                        <div class="property-price">$450 <span>/ night</span></div>
+                    </div>
+                    <div class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Coastal Bluffs, Chaka Town</span>
+                    </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <i class="fas fa-bed"></i> 5 beds
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-bath"></i> 4.5 baths
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-ruler-combined"></i> 3,500 sqft
+                        </div>
+                    </div>
+                    <div class="property-rating">
+                        <i class="fas fa-star"></i> 4.8 (32 reviews)
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Property 3 -->
+            <a href="property.html" class="property-card">
+                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Forest Retreat" class="property-image">
+                <div class="property-info">
+                    <div class="property-header">
+                        <h3 class="property-title">Forest Retreat</h3>
+                        <div class="property-price">$275 <span>/ night</span></div>
+                    </div>
+                    <div class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Pine Valley, Chaka Town</span>
+                    </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <i class="fas fa-bed"></i> 3 beds
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-bath"></i> 2 baths
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-ruler-combined"></i> 1,800 sqft
+                        </div>
+                    </div>
+                    <div class="property-rating">
+                        <i class="fas fa-star"></i> 4.7 (18 reviews)
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Property 4 -->
+            <a href="property.html" class="property-card">
+                <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Modern Luxury Villa" class="property-image">
+                <div class="property-info">
+                    <div class="property-header">
+                        <h3 class="property-title">Modern Luxury Villa</h3>
+                        <div class="property-price">$380 <span>/ night</span></div>
+                    </div>
+                    <div class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Hillside District, Chaka Town</span>
+                    </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <i class="fas fa-bed"></i> 4 beds
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-bath"></i> 3.5 baths
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-ruler-combined"></i> 2,600 sqft
+                        </div>
+                    </div>
+                    <div class="property-rating">
+                        <i class="fas fa-star"></i> 4.9 (27 reviews)
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Property 5 -->
+            <a href="property.html" class="property-card">
+                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Vineyard Estate" class="property-image">
+                <div class="property-info">
+                    <div class="property-header">
+                        <h3 class="property-title">Vineyard Estate</h3>
+                        <div class="property-price">$520 <span>/ night</span></div>
+                    </div>
+                    <div class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Wine Country, Chaka Town</span>
+                    </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <i class="fas fa-bed"></i> 5 beds
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-bath"></i> 4 baths
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-ruler-combined"></i> 4,200 sqft
+                        </div>
+                    </div>
+                    <div class="property-rating">
+                        <i class="fas fa-star"></i> 4.8 (35 reviews)
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Property 6 -->
+            <a href="property.html" class="property-card">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" 
+                     alt="Lakeside Cabin" class="property-image">
+                <div class="property-info">
+                    <div class="property-header">
+                        <h3 class="property-title">Lakeside Cabin</h3>
+                        <div class="property-price">$220 <span>/ night</span></div>
+                    </div>
+                    <div class="property-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Lake Serene, Chaka Town</span>
+                    </div>
+                    <div class="property-features">
+                        <div class="property-feature">
+                            <i class="fas fa-bed"></i> 2 beds
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-bath"></i> 1 bath
+                        </div>
+                        <div class="property-feature">
+                            <i class="fas fa-ruler-combined"></i> 1,200 sqft
+                        </div>
+                    </div>
+                    <div class="property-rating">
+                        <i class="fas fa-star"></i> 4.6 (15 reviews)
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="pagination">
+            <button class="page-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Chaka Stays</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Safety information</a></li>
+                        <li><a href="#">Cancellation options</a></li>
+                        <li><a href="#">Report issue</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Community</h3>
+                    <ul>
+                        <li><a href="#">Chaka Town Guide</a></li>
+                        <li><a href="#">Local Experiences</a></li>
+                        <li><a href="#">Support local businesses</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Hosting</h3>
+                    <ul>
+                        <li><a href="#">List your property</a></li>
+                        <li><a href="#">Host resources</a></li>
+                        <li><a href="#">Community standards</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Chaka Stays. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter button functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
+        // Pagination button functionality
+        const pageBtns = document.querySelectorAll('.page-btn:not(:first-child):not(:last-child)');
+        pageBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                pageBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+        
+        // Initialize date picker for search form
+        document.addEventListener('DOMContentLoaded', function() {
+            // This would be replaced with actual date picker library initialization
+            const dateInput = document.getElementById('dates');
+            dateInput.addEventListener('focus', function() {
+                this.type = 'date';
+            });
+        });
+    </script>
+</body>
+</html>
